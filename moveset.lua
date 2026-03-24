@@ -125,12 +125,14 @@ end
 function check_dash(m)
     init_locals(m)
 
-    if is_grounded(m) and e.canDash and action ~= ACT_SKYE_DASH_GROUND and e.actionTick > 0 then
-        if buttonXpress then set_mario_action(m, ACT_SKYE_DASH_GROUND, 0) end
-    end
+    if m.pos.y > m.waterLevel then
+        if is_grounded(m) and e.canDash and action ~= ACT_SKYE_DASH_GROUND and e.actionTick > 0 then
+            if buttonXpress then set_mario_action(m, ACT_SKYE_DASH_GROUND, 0) end
+        end
 
-    if jumpAct[action] and e.canDash and action ~= ACT_SKYE_DASH_AIR and e.actionTick > 0 then
-        if buttonXpress then set_mario_action(m, ACT_SKYE_DASH_AIR, 0) end
+        if jumpAct[action] and e.canDash and action ~= ACT_SKYE_DASH_AIR and e.actionTick > 0 then
+            if buttonXpress then set_mario_action(m, ACT_SKYE_DASH_AIR, 0) end
+        end
     end
 end
 

@@ -190,7 +190,7 @@ function make_actionable_air(m)
 end
 
 function is_grounded(m)
-    if m.floorHeight == m.pos.y then
+    if (m.floorHeight == m.pos.y) and not excludeGroundAttackAct[action] then
         return true
     end
     return false

@@ -9,7 +9,7 @@ if not _G.charSelectExists then
 end
 
 local E_MODEL_SKYE = smlua_model_util_get_id("skye_geo")
---local ICON_SKYE= get_texture_info("skye_icon")
+local ICON_SKYE= get_texture_info("skye_icon")
 local SKYE_GRAFFITI = get_texture_info("skye_graffiti")
 
 local PALETTE_SKYE = {
@@ -32,10 +32,10 @@ _G.charSelect.character_add_palette_preset(E_MODEL_SKYE, PALETTE_SKYE)
 
 
 CHAR_SKYE = _G.charSelect.character_add(
-    "Character", -- Character Name
+    "Skye", -- Character Name
     "", -- Description
     "Honi", -- Credits
-    "FFFFFF",           -- Menu Color
+    "393C4A",           -- Menu Color
     E_MODEL_SKYE,       -- Character Model
     CT_MARIO,           -- Override Character
     ICON_SKYE, -- Life Icon
@@ -44,3 +44,31 @@ CHAR_SKYE = _G.charSelect.character_add(
 
 --if anims then charSelect.character_add_animations(E_MODEL_SKYE, anims) end
 charSelect.character_add_graffiti(CHAR_SKYE, SKYE_GRAFFITI)
+
+-- switch States
+
+function rightSwitchC(node, maxStackIndex) 
+    local asSwitchNode = cast_graph_node(node)
+    local m = geo_get_mario_state()
+    local toNode = 0
+
+    if m.action == ACT_SKYE_ATTACK_RIGHT and m.actionTimer < 8 then
+        toNode = 1
+    else
+        toNode = 0
+    end
+    asSwitchNode.selectedCase = toNode
+end
+
+function leftSwitchC(node, maxStackIndex) 
+    local asSwitchNode = cast_graph_node(node)
+    local m = geo_get_mario_state()
+    local toNode = 0
+
+    if m.action == ACT_SKYE_ATTACK_LEFT and m.actionTimer < 8 then
+        toNode = 1
+    else
+        toNode = 0
+    end
+    asSwitchNode.selectedCase = toNode
+end

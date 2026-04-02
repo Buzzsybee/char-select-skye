@@ -4,7 +4,8 @@ ACT_SKYE_DOUBLE_JUMP = allocate_mario_action(ACT_GROUP_AIRBORNE | ACT_FLAG_MOVIN
 ACT_SKYE_DASH_GROUND = allocate_mario_action(ACT_FLAG_MOVING | ACT_GROUP_MOVING | ACT_FLAG_ALLOW_VERTICAL_WIND_ACTION)
 ACT_SKYE_DASH_AIR = allocate_mario_action(ACT_GROUP_AIRBORNE | ACT_FLAG_MOVING | ACT_FLAG_AIR | ACT_FLAG_ALLOW_VERTICAL_WIND_ACTION)
 ACT_WALL_SLIDE = allocate_mario_action(ACT_GROUP_AIRBORNE | ACT_FLAG_AIR | ACT_FLAG_MOVING | ACT_FLAG_ALLOW_VERTICAL_WIND_ACTION)
-
+ACT_SKYE_ATTACK_RIGHT = allocate_mario_action(ACT_GROUP_AIRBORNE | ACT_FLAG_AIR | ACT_FLAG_ATTACKING)
+ACT_SKYE_ATTACK_LEFT = allocate_mario_action(ACT_GROUP_AIRBORNE | ACT_FLAG_AIR | ACT_FLAG_ATTACKING)
 
 ---comment
 ---@param m MarioState
@@ -115,6 +116,59 @@ local function act_wall_slide(m)
 end
 hook_mario_action(ACT_WALL_SLIDE, {every_frame=act_wall_slide})
 
+local function act_skye_attack_right(m)
+    init_locals(m)
+
+    if m.actionTimer == 0 then
+        play_character_sound(m, CHAR_SOUND_HRMM)
+        m.faceAngle.y = m.intendedYaw
+        set_mario_animation(m, CHAR_ANIM_FIRST_PUNCH)
+        smlua_anim_util_set_animation(m.marioObj, 'SLASH_RIGHT')
+    end
+
+    mario_set_forward_vel(m, 20)
+    step = perform_ground_step(m)
+
+    if m.actionTimer == 5 then
+        play_character_sound(m, CHAR_SOUND_GROUND_POUND_WAH)
+        m.flags = m.flags | MARIO_KICKING
+    end
+
+    if buttonBpress and m.actionTimer > 4 then return set_mario_action(m, ACT_SKYE_ATTACK_LEFT, 0) end
+    if m.actionTimer > 14 then set_mario_action(m, ACT_IDLE, 0) end
+
+    m.actionTimer = m.actionTimer + 1
+
+    return false
+end
+hook_mario_action(ACT_SKYE_ATTACK_RIGHT, {every_frame=act_skye_attack_right}, INT_KICK)
+
+local function act_skye_attack_left(m)
+    init_locals(m)
+
+    if m.actionTimer == 0 then
+        play_character_sound(m, CHAR_SOUND_HRMM)
+        m.faceAngle.y = m.intendedYaw
+        set_mario_animation(m, CHAR_ANIM_SECOND_PUNCH)
+        smlua_anim_util_set_animation(m.marioObj, 'SLASH_LEFT')
+    end
+
+    mario_set_forward_vel(m, 20)
+    step = perform_ground_step(m)
+    
+    if m.actionTimer == 2 then
+        play_character_sound(m, CHAR_SOUND_GROUND_POUND_WAH)
+        m.flags = m.flags | MARIO_KICKING
+    end
+
+    if buttonBpress and m.actionTimer > 4 then return set_mario_action(m, ACT_SKYE_ATTACK_RIGHT, 0) end
+    if m.actionTimer > 14 then set_mario_action(m, ACT_IDLE, 0) end
+
+    m.actionTimer = m.actionTimer + 1
+    return false
+end
+hook_mario_action(ACT_SKYE_ATTACK_LEFT, {every_frame=act_skye_attack_left}, INT_KICK)
+
 function check_double_jump_s(m)
     init_locals(m)
 
@@ -147,6 +201,19 @@ local function before_set_action(m, inc)
         m.vel.z = 0
 
         return ACT_WALL_SLIDE
+    end
+end
+
+local function on_set_action_skye(m)
+    --attack starts on right always
+    
+end
+
+local function before_update(m)
+    init_locals(m)
+    
+    if (action == ACT_PUNCHING or action == ACT_MOVE_PUNCHING) then
+        set_mario_action(m, ACT_SKYE_ATTACK_RIGHT, 0)
     end
 end
 
@@ -184,4 +251,6 @@ local function update_skye(m)
 end
 
 charSelect.character_hook_moveset(CHAR_SKYE, HOOK_BEFORE_SET_MARIO_ACTION, before_set_action)
+charSelect.character_hook_moveset(CHAR_SKYE, HOOK_ON_SET_MARIO_ACTION, on_set_action_skye)
+charSelect.character_hook_moveset(CHAR_SKYE, HOOK_BEFORE_MARIO_UPDATE, before_update)
 charSelect.character_hook_moveset(CHAR_SKYE, HOOK_MARIO_UPDATE, update_skye)

@@ -42,6 +42,18 @@ Lights1 skye_gloves_lights = gdSPDefLights1(
 	0x11, 0x11, 0x14,
 	0x2C, 0x2C, 0x32, 0x28, 0x28, 0x28);
 
+Lights1 skye_slash2_lights = gdSPDefLights1(
+	0x7F, 0x0, 0x3,
+	0xFF, 0x0, 0xC, 0x28, 0x28, 0x28);
+
+Lights1 skye_slash_lights = gdSPDefLights1(
+	0x0, 0x0, 0x0,
+	0x0, 0x0, 0x0, 0x28, 0x28, 0x28);
+
+Lights1 skye_slash3_lights = gdSPDefLights1(
+	0x0, 0xC, 0x7F,
+	0x0, 0x24, 0xFF, 0x28, 0x28, 0x28);
+
 Lights1 skye_shooes_lights = gdSPDefLights1(
 	0xD, 0xD, 0x11,
 	0x25, 0x25, 0x2C, 0x28, 0x28, 0x28);
@@ -1864,6 +1876,126 @@ Gfx skye_Left_Hand_Open_Switch_Option_Left_Hand_Open_mesh_layer_1_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
+Vtx skye_Left_Hand_Slash_Switch_Option_Left_Hand_Slash_mesh_layer_1_vtx_0[24] = {
+	{{{85, 47, -12}, 0, {-16, 1008}, {0xD2, 0x44, 0x9F, 0xFF}}},
+	{{{95, 47, 30}, 0, {-16, 1008}, {0xAC, 0x5F, 0x02, 0xFF}}},
+	{{{115, 48, 27}, 0, {-16, 1008}, {0x5F, 0x51, 0xE8, 0xFF}}},
+	{{{85, 41, -12}, 0, {-16, 1008}, {0xD4, 0xBB, 0x9F, 0xFF}}},
+	{{{115, 41, 27}, 0, {-16, 1008}, {0x60, 0xB1, 0xE8, 0xFF}}},
+	{{{95, 41, 30}, 0, {-16, 1008}, {0xAE, 0x9F, 0x02, 0xFF}}},
+	{{{108, 22, -14}, 0, {-16, 1008}, {0xD2, 0x44, 0x9F, 0xFF}}},
+	{{{118, 22, 29}, 0, {-16, 1008}, {0xAC, 0x5F, 0x02, 0xFF}}},
+	{{{138, 23, 26}, 0, {-16, 1008}, {0x5F, 0x51, 0xE8, 0xFF}}},
+	{{{108, 16, -14}, 0, {-16, 1008}, {0xD4, 0xBB, 0x9F, 0xFF}}},
+	{{{138, 16, 26}, 0, {-16, 1008}, {0x60, 0xB1, 0xE8, 0xFF}}},
+	{{{118, 16, 29}, 0, {-16, 1008}, {0xAE, 0x9F, 0x02, 0xFF}}},
+	{{{130, -10, -15}, 0, {-16, 1008}, {0xD2, 0x44, 0x9F, 0xFF}}},
+	{{{140, -10, 28}, 0, {-16, 1008}, {0xAC, 0x5F, 0x02, 0xFF}}},
+	{{{160, -10, 25}, 0, {-16, 1008}, {0x5F, 0x51, 0xE8, 0xFF}}},
+	{{{130, -17, -15}, 0, {-16, 1008}, {0xD4, 0xBB, 0x9F, 0xFF}}},
+	{{{160, -17, 25}, 0, {-16, 1008}, {0x60, 0xB1, 0xE8, 0xFF}}},
+	{{{140, -17, 28}, 0, {-16, 1008}, {0xAE, 0x9F, 0x02, 0xFF}}},
+	{{{150, -48, 23}, 0, {-16, 1008}, {0x5F, 0x51, 0xE8, 0xFF}}},
+	{{{120, -48, -17}, 0, {-16, 1008}, {0xD2, 0x44, 0x9F, 0xFF}}},
+	{{{130, -48, 26}, 0, {-16, 1008}, {0xAC, 0x5F, 0x02, 0xFF}}},
+	{{{120, -55, -17}, 0, {-16, 1008}, {0xD4, 0xBB, 0x9F, 0xFF}}},
+	{{{150, -55, 23}, 0, {-16, 1008}, {0x60, 0xB1, 0xE8, 0xFF}}},
+	{{{130, -55, 26}, 0, {-16, 1008}, {0xAE, 0x9F, 0x02, 0xFF}}},
+};
+
+Gfx skye_Left_Hand_Slash_Switch_Option_Left_Hand_Slash_mesh_layer_1_tri_0[] = {
+	gsSPVertex(skye_Left_Hand_Slash_Switch_Option_Left_Hand_Slash_mesh_layer_1_vtx_0 + 0, 24, 0),
+	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
+	gsSP2Triangles(0, 4, 3, 0, 0, 2, 4, 0),
+	gsSP2Triangles(3, 4, 5, 0, 1, 3, 5, 0),
+	gsSP2Triangles(6, 7, 8, 0, 7, 6, 9, 0),
+	gsSP2Triangles(6, 10, 9, 0, 6, 8, 10, 0),
+	gsSP2Triangles(9, 10, 11, 0, 7, 9, 11, 0),
+	gsSP2Triangles(12, 13, 14, 0, 13, 12, 15, 0),
+	gsSP2Triangles(12, 16, 15, 0, 12, 14, 16, 0),
+	gsSP2Triangles(15, 16, 17, 0, 13, 15, 17, 0),
+	gsSP2Triangles(18, 19, 20, 0, 18, 21, 19, 0),
+	gsSP2Triangles(18, 22, 21, 0, 22, 23, 21, 0),
+	gsSP2Triangles(19, 21, 23, 0, 19, 23, 20, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx skye_Left_Hand_Slash_Switch_Option_Left_Hand_Slash_mesh_layer_1_vtx_1[40] = {
+	{{{95, 47, 30}, 0, {-16, 1008}, {0xAC, 0x5F, 0x02, 0xFF}}},
+	{{{105, 47, 93}, 0, {-16, 1008}, {0x53, 0x50, 0x35, 0xFF}}},
+	{{{115, 48, 27}, 0, {-16, 1008}, {0x5F, 0x51, 0xE8, 0xFF}}},
+	{{{85, 47, 86}, 0, {-16, 1008}, {0xB8, 0x62, 0xDC, 0xFF}}},
+	{{{95, 41, 30}, 0, {-16, 1008}, {0xAE, 0x9F, 0x02, 0xFF}}},
+	{{{85, 41, 86}, 0, {-16, 1008}, {0xBA, 0x9C, 0xDC, 0xFF}}},
+	{{{105, 41, 93}, 0, {-16, 1008}, {0x54, 0xB2, 0x35, 0xFF}}},
+	{{{115, 41, 27}, 0, {-16, 1008}, {0x60, 0xB1, 0xE8, 0xFF}}},
+	{{{32, 40, 141}, 0, {-16, 1008}, {0xAE, 0xBB, 0x44, 0xFF}}},
+	{{{31, 47, 141}, 0, {-16, 1008}, {0xAD, 0x43, 0x44, 0xFF}}},
+	{{{118, 22, 29}, 0, {-16, 1008}, {0xAC, 0x5F, 0x02, 0xFF}}},
+	{{{128, 23, 92}, 0, {-16, 1008}, {0x53, 0x50, 0x35, 0xFF}}},
+	{{{138, 23, 26}, 0, {-16, 1008}, {0x5F, 0x51, 0xE8, 0xFF}}},
+	{{{108, 22, 85}, 0, {-16, 1008}, {0xB8, 0x62, 0xDC, 0xFF}}},
+	{{{118, 16, 29}, 0, {-16, 1008}, {0xAE, 0x9F, 0x02, 0xFF}}},
+	{{{108, 16, 85}, 0, {-16, 1008}, {0xBA, 0x9C, 0xDC, 0xFF}}},
+	{{{128, 16, 92}, 0, {-16, 1008}, {0x54, 0xB2, 0x35, 0xFF}}},
+	{{{138, 16, 26}, 0, {-16, 1008}, {0x60, 0xB1, 0xE8, 0xFF}}},
+	{{{55, 15, 140}, 0, {-16, 1008}, {0xAE, 0xBB, 0x44, 0xFF}}},
+	{{{55, 22, 140}, 0, {-16, 1008}, {0xAD, 0x43, 0x44, 0xFF}}},
+	{{{140, -10, 28}, 0, {-16, 1008}, {0xAC, 0x5F, 0x02, 0xFF}}},
+	{{{150, -10, 91}, 0, {-16, 1008}, {0x53, 0x50, 0x35, 0xFF}}},
+	{{{160, -10, 25}, 0, {-16, 1008}, {0x5F, 0x51, 0xE8, 0xFF}}},
+	{{{130, -10, 84}, 0, {-16, 1008}, {0xB8, 0x62, 0xDC, 0xFF}}},
+	{{{140, -17, 28}, 0, {-16, 1008}, {0xAE, 0x9F, 0x02, 0xFF}}},
+	{{{130, -17, 84}, 0, {-16, 1008}, {0xBA, 0x9C, 0xDC, 0xFF}}},
+	{{{150, -17, 91}, 0, {-16, 1008}, {0x54, 0xB2, 0x35, 0xFF}}},
+	{{{160, -17, 25}, 0, {-16, 1008}, {0x60, 0xB1, 0xE8, 0xFF}}},
+	{{{77, -18, 138}, 0, {-16, 1008}, {0xAE, 0xBB, 0x44, 0xFF}}},
+	{{{77, -11, 138}, 0, {-16, 1008}, {0xAD, 0x43, 0x44, 0xFF}}},
+	{{{120, -48, 82}, 0, {-16, 1008}, {0xB8, 0x62, 0xDC, 0xFF}}},
+	{{{150, -48, 23}, 0, {-16, 1008}, {0x5F, 0x51, 0xE8, 0xFF}}},
+	{{{130, -48, 26}, 0, {-16, 1008}, {0xAC, 0x5F, 0x02, 0xFF}}},
+	{{{140, -48, 89}, 0, {-16, 1008}, {0x53, 0x50, 0x35, 0xFF}}},
+	{{{67, -49, 137}, 0, {-16, 1008}, {0xAD, 0x43, 0x44, 0xFF}}},
+	{{{67, -56, 137}, 0, {-16, 1008}, {0xAE, 0xBB, 0x44, 0xFF}}},
+	{{{120, -55, 82}, 0, {-16, 1008}, {0xBA, 0x9C, 0xDC, 0xFF}}},
+	{{{130, -55, 26}, 0, {-16, 1008}, {0xAE, 0x9F, 0x02, 0xFF}}},
+	{{{150, -55, 23}, 0, {-16, 1008}, {0x60, 0xB1, 0xE8, 0xFF}}},
+	{{{140, -55, 89}, 0, {-16, 1008}, {0x54, 0xB2, 0x35, 0xFF}}},
+};
+
+Gfx skye_Left_Hand_Slash_Switch_Option_Left_Hand_Slash_mesh_layer_1_tri_1[] = {
+	gsSPVertex(skye_Left_Hand_Slash_Switch_Option_Left_Hand_Slash_mesh_layer_1_vtx_1 + 0, 40, 0),
+	gsSP2Triangles(0, 1, 2, 0, 0, 3, 1, 0),
+	gsSP2Triangles(3, 0, 4, 0, 3, 4, 5, 0),
+	gsSP2Triangles(4, 6, 5, 0, 4, 7, 6, 0),
+	gsSP2Triangles(2, 6, 7, 0, 2, 1, 6, 0),
+	gsSP2Triangles(1, 8, 6, 0, 1, 9, 8, 0),
+	gsSP2Triangles(9, 1, 3, 0, 9, 3, 5, 0),
+	gsSP2Triangles(9, 5, 8, 0, 8, 5, 6, 0),
+	gsSP2Triangles(10, 11, 12, 0, 10, 13, 11, 0),
+	gsSP2Triangles(13, 10, 14, 0, 13, 14, 15, 0),
+	gsSP2Triangles(14, 16, 15, 0, 14, 17, 16, 0),
+	gsSP2Triangles(12, 16, 17, 0, 12, 11, 16, 0),
+	gsSP2Triangles(11, 18, 16, 0, 11, 19, 18, 0),
+	gsSP2Triangles(19, 11, 13, 0, 19, 13, 15, 0),
+	gsSP2Triangles(19, 15, 18, 0, 18, 15, 16, 0),
+	gsSP2Triangles(20, 21, 22, 0, 20, 23, 21, 0),
+	gsSP2Triangles(23, 20, 24, 0, 23, 24, 25, 0),
+	gsSP2Triangles(24, 26, 25, 0, 24, 27, 26, 0),
+	gsSP2Triangles(22, 26, 27, 0, 22, 21, 26, 0),
+	gsSP2Triangles(21, 28, 26, 0, 21, 29, 28, 0),
+	gsSP2Triangles(29, 21, 23, 0, 29, 23, 25, 0),
+	gsSP2Triangles(29, 25, 28, 0, 28, 25, 26, 0),
+	gsSP2Triangles(30, 31, 32, 0, 30, 33, 31, 0),
+	gsSP2Triangles(34, 33, 30, 0, 30, 35, 34, 0),
+	gsSP2Triangles(30, 36, 35, 0, 32, 36, 30, 0),
+	gsSP2Triangles(32, 37, 36, 0, 36, 37, 38, 0),
+	gsSP2Triangles(36, 38, 39, 0, 33, 39, 38, 0),
+	gsSP2Triangles(33, 38, 31, 0, 34, 39, 33, 0),
+	gsSP2Triangles(34, 35, 39, 0, 35, 36, 39, 0),
+	gsSPEndDisplayList(),
+};
+
 Vtx skye_Left_Wing_DL_mesh_layer_4_vtx_0[4] = {
 	{{{-27, 307, 3}, 0, {0, 0}, {0xE7, 0xFF, 0x7D, 0xFF}}},
 	{{{-59, -9, -6}, 0, {0, 2012}, {0xE7, 0xFF, 0x7D, 0xFF}}},
@@ -2465,6 +2597,126 @@ Gfx skye_Right_Hand_Peace_Switch_Option_Right_Hand_Peace_mesh_layer_1_tri_0[] = 
 	gsSP2Triangles(7, 6, 8, 0, 9, 7, 8, 0),
 	gsSP2Triangles(9, 8, 10, 0, 9, 4, 7, 0),
 	gsSP2Triangles(9, 0, 4, 0, 0, 9, 1, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx skye_Right_Hand_Slash_Switch_Option_Right_Hand_Slash_mesh_layer_1_vtx_0[24] = {
+	{{{85, 47, 19}, 0, {-16, 1008}, {0xD2, 0x44, 0x61, 0xFF}}},
+	{{{115, 48, -21}, 0, {-16, 1008}, {0x5F, 0x51, 0x18, 0xFF}}},
+	{{{95, 47, -24}, 0, {-16, 1008}, {0xAC, 0x5F, 0xFE, 0xFF}}},
+	{{{115, 41, -21}, 0, {-16, 1008}, {0x60, 0xB1, 0x18, 0xFF}}},
+	{{{85, 41, 19}, 0, {-16, 1008}, {0xD4, 0xBB, 0x61, 0xFF}}},
+	{{{95, 41, -24}, 0, {-16, 1008}, {0xAE, 0x9F, 0xFE, 0xFF}}},
+	{{{108, 22, 20}, 0, {-16, 1008}, {0xD2, 0x44, 0x61, 0xFF}}},
+	{{{138, 23, -20}, 0, {-16, 1008}, {0x5F, 0x51, 0x18, 0xFF}}},
+	{{{118, 22, -23}, 0, {-16, 1008}, {0xAC, 0x5F, 0xFE, 0xFF}}},
+	{{{138, 16, -20}, 0, {-16, 1008}, {0x60, 0xB1, 0x18, 0xFF}}},
+	{{{108, 16, 20}, 0, {-16, 1008}, {0xD4, 0xBB, 0x61, 0xFF}}},
+	{{{118, 16, -23}, 0, {-16, 1008}, {0xAE, 0x9F, 0xFE, 0xFF}}},
+	{{{130, -10, 22}, 0, {-16, 1008}, {0xD2, 0x44, 0x61, 0xFF}}},
+	{{{160, -10, -18}, 0, {-16, 1008}, {0x5F, 0x51, 0x18, 0xFF}}},
+	{{{140, -10, -21}, 0, {-16, 1008}, {0xAC, 0x5F, 0xFE, 0xFF}}},
+	{{{160, -17, -18}, 0, {-16, 1008}, {0x60, 0xB1, 0x18, 0xFF}}},
+	{{{130, -17, 22}, 0, {-16, 1008}, {0xD4, 0xBB, 0x61, 0xFF}}},
+	{{{140, -17, -21}, 0, {-16, 1008}, {0xAE, 0x9F, 0xFE, 0xFF}}},
+	{{{150, -48, -17}, 0, {-16, 1008}, {0x5F, 0x51, 0x18, 0xFF}}},
+	{{{130, -48, -20}, 0, {-16, 1008}, {0xAC, 0x5F, 0xFE, 0xFF}}},
+	{{{120, -48, 23}, 0, {-16, 1008}, {0xD2, 0x44, 0x61, 0xFF}}},
+	{{{130, -55, -20}, 0, {-16, 1008}, {0xAE, 0x9F, 0xFE, 0xFF}}},
+	{{{120, -55, 23}, 0, {-16, 1008}, {0xD4, 0xBB, 0x61, 0xFF}}},
+	{{{150, -55, -17}, 0, {-16, 1008}, {0x60, 0xB1, 0x18, 0xFF}}},
+};
+
+Gfx skye_Right_Hand_Slash_Switch_Option_Right_Hand_Slash_mesh_layer_1_tri_0[] = {
+	gsSPVertex(skye_Right_Hand_Slash_Switch_Option_Right_Hand_Slash_mesh_layer_1_vtx_0 + 0, 24, 0),
+	gsSP2Triangles(0, 1, 2, 0, 0, 3, 1, 0),
+	gsSP2Triangles(0, 4, 3, 0, 2, 4, 0, 0),
+	gsSP2Triangles(2, 5, 4, 0, 4, 5, 3, 0),
+	gsSP2Triangles(6, 7, 8, 0, 6, 9, 7, 0),
+	gsSP2Triangles(6, 10, 9, 0, 8, 10, 6, 0),
+	gsSP2Triangles(8, 11, 10, 0, 10, 11, 9, 0),
+	gsSP2Triangles(12, 13, 14, 0, 12, 15, 13, 0),
+	gsSP2Triangles(12, 16, 15, 0, 14, 16, 12, 0),
+	gsSP2Triangles(14, 17, 16, 0, 16, 17, 15, 0),
+	gsSP2Triangles(18, 19, 20, 0, 20, 19, 21, 0),
+	gsSP2Triangles(20, 21, 22, 0, 23, 22, 21, 0),
+	gsSP2Triangles(18, 22, 23, 0, 18, 20, 22, 0),
+	gsSPEndDisplayList(),
+};
+
+Vtx skye_Right_Hand_Slash_Switch_Option_Right_Hand_Slash_mesh_layer_1_vtx_1[40] = {
+	{{{95, 47, -24}, 0, {-16, 1008}, {0xAC, 0x5F, 0xFE, 0xFF}}},
+	{{{115, 48, -21}, 0, {-16, 1008}, {0x5F, 0x51, 0x18, 0xFF}}},
+	{{{105, 47, -87}, 0, {-16, 1008}, {0x53, 0x50, 0xCB, 0xFF}}},
+	{{{105, 41, -87}, 0, {-16, 1008}, {0x54, 0xB2, 0xCB, 0xFF}}},
+	{{{115, 41, -21}, 0, {-16, 1008}, {0x60, 0xB1, 0x18, 0xFF}}},
+	{{{95, 41, -24}, 0, {-16, 1008}, {0xAE, 0x9F, 0xFE, 0xFF}}},
+	{{{85, 41, -80}, 0, {-16, 1008}, {0xBA, 0x9C, 0x24, 0xFF}}},
+	{{{85, 47, -80}, 0, {-16, 1008}, {0xB8, 0x62, 0x24, 0xFF}}},
+	{{{31, 47, -135}, 0, {-16, 1008}, {0xAD, 0x43, 0xBC, 0xFF}}},
+	{{{32, 40, -135}, 0, {-16, 1008}, {0xAE, 0xBB, 0xBC, 0xFF}}},
+	{{{118, 22, -23}, 0, {-16, 1008}, {0xAC, 0x5F, 0xFE, 0xFF}}},
+	{{{138, 23, -20}, 0, {-16, 1008}, {0x5F, 0x51, 0x18, 0xFF}}},
+	{{{128, 23, -86}, 0, {-16, 1008}, {0x53, 0x50, 0xCB, 0xFF}}},
+	{{{128, 16, -86}, 0, {-16, 1008}, {0x54, 0xB2, 0xCB, 0xFF}}},
+	{{{138, 16, -20}, 0, {-16, 1008}, {0x60, 0xB1, 0x18, 0xFF}}},
+	{{{118, 16, -23}, 0, {-16, 1008}, {0xAE, 0x9F, 0xFE, 0xFF}}},
+	{{{108, 16, -79}, 0, {-16, 1008}, {0xBA, 0x9C, 0x24, 0xFF}}},
+	{{{108, 22, -79}, 0, {-16, 1008}, {0xB8, 0x62, 0x24, 0xFF}}},
+	{{{55, 22, -134}, 0, {-16, 1008}, {0xAD, 0x43, 0xBC, 0xFF}}},
+	{{{55, 15, -134}, 0, {-16, 1008}, {0xAE, 0xBB, 0xBC, 0xFF}}},
+	{{{140, -10, -21}, 0, {-16, 1008}, {0xAC, 0x5F, 0xFE, 0xFF}}},
+	{{{160, -10, -18}, 0, {-16, 1008}, {0x5F, 0x51, 0x18, 0xFF}}},
+	{{{150, -10, -84}, 0, {-16, 1008}, {0x53, 0x50, 0xCB, 0xFF}}},
+	{{{150, -17, -84}, 0, {-16, 1008}, {0x54, 0xB2, 0xCB, 0xFF}}},
+	{{{160, -17, -18}, 0, {-16, 1008}, {0x60, 0xB1, 0x18, 0xFF}}},
+	{{{140, -17, -21}, 0, {-16, 1008}, {0xAE, 0x9F, 0xFE, 0xFF}}},
+	{{{130, -17, -77}, 0, {-16, 1008}, {0xBA, 0x9C, 0x24, 0xFF}}},
+	{{{130, -10, -77}, 0, {-16, 1008}, {0xB8, 0x62, 0x24, 0xFF}}},
+	{{{77, -11, -132}, 0, {-16, 1008}, {0xAD, 0x43, 0xBC, 0xFF}}},
+	{{{77, -18, -132}, 0, {-16, 1008}, {0xAE, 0xBB, 0xBC, 0xFF}}},
+	{{{120, -48, -76}, 0, {-16, 1008}, {0xB8, 0x62, 0x24, 0xFF}}},
+	{{{130, -48, -20}, 0, {-16, 1008}, {0xAC, 0x5F, 0xFE, 0xFF}}},
+	{{{150, -48, -17}, 0, {-16, 1008}, {0x5F, 0x51, 0x18, 0xFF}}},
+	{{{120, -55, -76}, 0, {-16, 1008}, {0xBA, 0x9C, 0x24, 0xFF}}},
+	{{{67, -56, -131}, 0, {-16, 1008}, {0xAE, 0xBB, 0xBC, 0xFF}}},
+	{{{67, -49, -131}, 0, {-16, 1008}, {0xAD, 0x43, 0xBC, 0xFF}}},
+	{{{140, -48, -83}, 0, {-16, 1008}, {0x53, 0x50, 0xCB, 0xFF}}},
+	{{{150, -55, -17}, 0, {-16, 1008}, {0x60, 0xB1, 0x18, 0xFF}}},
+	{{{140, -55, -83}, 0, {-16, 1008}, {0x54, 0xB2, 0xCB, 0xFF}}},
+	{{{130, -55, -20}, 0, {-16, 1008}, {0xAE, 0x9F, 0xFE, 0xFF}}},
+};
+
+Gfx skye_Right_Hand_Slash_Switch_Option_Right_Hand_Slash_mesh_layer_1_tri_1[] = {
+	gsSPVertex(skye_Right_Hand_Slash_Switch_Option_Right_Hand_Slash_mesh_layer_1_vtx_1 + 0, 40, 0),
+	gsSP2Triangles(0, 1, 2, 0, 1, 3, 2, 0),
+	gsSP2Triangles(1, 4, 3, 0, 5, 3, 4, 0),
+	gsSP2Triangles(5, 6, 3, 0, 7, 6, 5, 0),
+	gsSP2Triangles(7, 5, 0, 0, 0, 2, 7, 0),
+	gsSP2Triangles(8, 7, 2, 0, 2, 9, 8, 0),
+	gsSP2Triangles(2, 3, 9, 0, 9, 3, 6, 0),
+	gsSP2Triangles(8, 9, 6, 0, 8, 6, 7, 0),
+	gsSP2Triangles(10, 11, 12, 0, 11, 13, 12, 0),
+	gsSP2Triangles(11, 14, 13, 0, 15, 13, 14, 0),
+	gsSP2Triangles(15, 16, 13, 0, 17, 16, 15, 0),
+	gsSP2Triangles(17, 15, 10, 0, 10, 12, 17, 0),
+	gsSP2Triangles(18, 17, 12, 0, 12, 19, 18, 0),
+	gsSP2Triangles(12, 13, 19, 0, 19, 13, 16, 0),
+	gsSP2Triangles(18, 19, 16, 0, 18, 16, 17, 0),
+	gsSP2Triangles(20, 21, 22, 0, 21, 23, 22, 0),
+	gsSP2Triangles(21, 24, 23, 0, 25, 23, 24, 0),
+	gsSP2Triangles(25, 26, 23, 0, 27, 26, 25, 0),
+	gsSP2Triangles(27, 25, 20, 0, 20, 22, 27, 0),
+	gsSP2Triangles(28, 27, 22, 0, 22, 29, 28, 0),
+	gsSP2Triangles(22, 23, 29, 0, 29, 23, 26, 0),
+	gsSP2Triangles(28, 29, 26, 0, 28, 26, 27, 0),
+	gsSP2Triangles(30, 31, 32, 0, 31, 30, 33, 0),
+	gsSP2Triangles(30, 34, 33, 0, 30, 35, 34, 0),
+	gsSP2Triangles(35, 30, 36, 0, 30, 32, 36, 0),
+	gsSP2Triangles(36, 32, 37, 0, 36, 37, 38, 0),
+	gsSP2Triangles(33, 38, 37, 0, 33, 37, 39, 0),
+	gsSP2Triangles(31, 33, 39, 0, 34, 38, 33, 0),
+	gsSP2Triangles(35, 38, 34, 0, 35, 36, 38, 0),
 	gsSPEndDisplayList(),
 };
 
@@ -3402,6 +3654,40 @@ Gfx mat_revert_skye_gloves[] = {
 	gsSPEndDisplayList(),
 };
 
+Gfx mat_skye_slash2[] = {
+	gsSPClearGeometryMode(G_CULL_BACK),
+	gsSPSetLights1(skye_slash2_lights),
+	gsDPPipeSync(),
+	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+	gsDPSetAlphaDither(G_AD_NOISE),
+	gsSPTexture(65535, 65535, 0, 0, 1),
+	gsSPEndDisplayList(),
+};
+
+Gfx mat_revert_skye_slash2[] = {
+	gsSPSetGeometryMode(G_CULL_BACK),
+	gsDPPipeSync(),
+	gsDPSetAlphaDither(G_AD_DISABLE),
+	gsSPEndDisplayList(),
+};
+
+Gfx mat_skye_slash[] = {
+	gsSPClearGeometryMode(G_CULL_BACK),
+	gsSPSetLights1(skye_slash_lights),
+	gsDPPipeSync(),
+	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+	gsDPSetAlphaDither(G_AD_NOISE),
+	gsSPTexture(65535, 65535, 0, 0, 1),
+	gsSPEndDisplayList(),
+};
+
+Gfx mat_revert_skye_slash[] = {
+	gsSPSetGeometryMode(G_CULL_BACK),
+	gsDPPipeSync(),
+	gsDPSetAlphaDither(G_AD_DISABLE),
+	gsSPEndDisplayList(),
+};
+
 Gfx mat_skye_Wing_Base[] = {
 	gsSPClearGeometryMode(G_CULL_BACK),
 	gsDPPipeSync(),
@@ -3451,6 +3737,21 @@ Gfx mat_revert_skye_Wing_Tip[] = {
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsDPSetTextureLUT(G_TT_NONE),
+	gsSPEndDisplayList(),
+};
+
+Gfx mat_skye_slash3[] = {
+	gsSPSetLights1(skye_slash3_lights),
+	gsDPPipeSync(),
+	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
+	gsDPSetAlphaDither(G_AD_NOISE),
+	gsSPTexture(65535, 65535, 0, 0, 1),
+	gsSPEndDisplayList(),
+};
+
+Gfx mat_revert_skye_slash3[] = {
+	gsDPPipeSync(),
+	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsSPEndDisplayList(),
 };
 
@@ -3718,6 +4019,32 @@ Gfx skye_Left_Hand_Open_Switch_Option_Left_Hand_Open_mesh_layer_1_mat_override_M
 	gsSPEndDisplayList(),
 };
 
+Gfx skye_Left_Hand_Slash_Switch_Option_Left_Hand_Slash_mesh_layer_1[] = {
+	gsSPDisplayList(mat_skye_slash2),
+	gsSPDisplayList(skye_Left_Hand_Slash_Switch_Option_Left_Hand_Slash_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_skye_slash2),
+	gsSPDisplayList(mat_skye_slash),
+	gsSPDisplayList(skye_Left_Hand_Slash_Switch_Option_Left_Hand_Slash_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_skye_slash),
+	gsSPEndDisplayList(),
+};
+
+Gfx skye_Left_Hand_Slash_Switch_Option_Left_Hand_Slash_mesh_layer_1_mat_override_Metal__METAL__0[] = {
+	gsSPDisplayList(mat_skye_Metal__METAL_),
+	gsSPDisplayList(skye_Left_Hand_Slash_Switch_Option_Left_Hand_Slash_mesh_layer_1_tri_0),
+	gsSPDisplayList(skye_Left_Hand_Slash_Switch_Option_Left_Hand_Slash_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_skye_Metal__METAL_),
+	gsSPEndDisplayList(),
+};
+
+Gfx skye_Left_Hand_Slash_Switch_Option_Left_Hand_Slash_mesh_layer_1_mat_override_Metal__METAL__1[] = {
+	gsSPDisplayList(mat_skye_Metal__METAL_),
+	gsSPDisplayList(skye_Left_Hand_Slash_Switch_Option_Left_Hand_Slash_mesh_layer_1_tri_0),
+	gsSPDisplayList(skye_Left_Hand_Slash_Switch_Option_Left_Hand_Slash_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_skye_Metal__METAL_),
+	gsSPEndDisplayList(),
+};
+
 Gfx skye_Left_Wing_DL_mesh_layer_4[] = {
 	gsSPDisplayList(mat_skye_Wing_Base),
 	gsSPDisplayList(skye_Left_Wing_DL_mesh_layer_4_tri_0),
@@ -3857,6 +4184,32 @@ Gfx skye_Right_Hand_Peace_Switch_Option_Right_Hand_Peace_mesh_layer_1_mat_overri
 Gfx skye_Right_Hand_Peace_Switch_Option_Right_Hand_Peace_mesh_layer_1_mat_override_Metal__METAL__1[] = {
 	gsSPDisplayList(mat_skye_Metal__METAL_),
 	gsSPDisplayList(skye_Right_Hand_Peace_Switch_Option_Right_Hand_Peace_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_skye_Metal__METAL_),
+	gsSPEndDisplayList(),
+};
+
+Gfx skye_Right_Hand_Slash_Switch_Option_Right_Hand_Slash_mesh_layer_1[] = {
+	gsSPDisplayList(mat_skye_slash3),
+	gsSPDisplayList(skye_Right_Hand_Slash_Switch_Option_Right_Hand_Slash_mesh_layer_1_tri_0),
+	gsSPDisplayList(mat_revert_skye_slash3),
+	gsSPDisplayList(mat_skye_slash),
+	gsSPDisplayList(skye_Right_Hand_Slash_Switch_Option_Right_Hand_Slash_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_skye_slash),
+	gsSPEndDisplayList(),
+};
+
+Gfx skye_Right_Hand_Slash_Switch_Option_Right_Hand_Slash_mesh_layer_1_mat_override_Metal__METAL__0[] = {
+	gsSPDisplayList(mat_skye_Metal__METAL_),
+	gsSPDisplayList(skye_Right_Hand_Slash_Switch_Option_Right_Hand_Slash_mesh_layer_1_tri_0),
+	gsSPDisplayList(skye_Right_Hand_Slash_Switch_Option_Right_Hand_Slash_mesh_layer_1_tri_1),
+	gsSPDisplayList(mat_revert_skye_Metal__METAL_),
+	gsSPEndDisplayList(),
+};
+
+Gfx skye_Right_Hand_Slash_Switch_Option_Right_Hand_Slash_mesh_layer_1_mat_override_Metal__METAL__1[] = {
+	gsSPDisplayList(mat_skye_Metal__METAL_),
+	gsSPDisplayList(skye_Right_Hand_Slash_Switch_Option_Right_Hand_Slash_mesh_layer_1_tri_0),
+	gsSPDisplayList(skye_Right_Hand_Slash_Switch_Option_Right_Hand_Slash_mesh_layer_1_tri_1),
 	gsSPDisplayList(mat_revert_skye_Metal__METAL_),
 	gsSPEndDisplayList(),
 };

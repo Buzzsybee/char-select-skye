@@ -6,6 +6,7 @@ ACT_SKYE_DASH_AIR = allocate_mario_action(ACT_GROUP_AIRBORNE | ACT_FLAG_MOVING |
 ACT_WALL_SLIDE = allocate_mario_action(ACT_GROUP_AIRBORNE | ACT_FLAG_AIR | ACT_FLAG_MOVING | ACT_FLAG_ALLOW_VERTICAL_WIND_ACTION)
 ACT_SKYE_ATTACK_RIGHT = allocate_mario_action(ACT_GROUP_AIRBORNE | ACT_FLAG_AIR | ACT_FLAG_ATTACKING)
 ACT_SKYE_ATTACK_LEFT = allocate_mario_action(ACT_GROUP_AIRBORNE | ACT_FLAG_AIR | ACT_FLAG_ATTACKING)
+ACT_SKYE_ATTACK_CENTER = allocate_mario_action(ACT_GROUP_AIRBORNE | ACT_FLAG_AIR | ACT_FLAG_ATTACKING)
 
 ---comment
 ---@param m MarioState
@@ -23,7 +24,13 @@ function act_skye_double_jump(m)
     if airstep == AIR_STEP_LANDED then set_mario_action(m, ACT_IDLE, 0) end
     if airstep == AIR_STEP_HIT_WALL then set_mario_action(m, ACT_SOFT_BONK, 0) end
 
+    if buttonZpress then 
+        set_mario_action(m, ACT_GROUND_POUND, 0) 
+        spawn_particle(m, PARTICLE_MIST_CIRCLE)
+    end
+
     check_kick_or_dive_in_air(m)
+    update_air_without_turn(m)
 
     e.canDoubleJumpAir = false
     m.actionTimer = m.actionTimer + 1
@@ -43,9 +50,22 @@ function act_skye_dash_air(m)
         m.faceAngle.y = m.intendedYaw
     end
 
+    if m.actionTimer < 10 then 
+        update_air_without_turn(m)
+        m.vel.y = 0 
+        spawn_particle(m, PARTICLE_DUST)
+    else
+        set_turn_speed(0x400)
+    end
+
     airstep = perform_air_step(m, 0)
     if airstep == AIR_STEP_LANDED then set_mario_action(m, ACT_IDLE, 0) end
     if airstep == AIR_STEP_HIT_WALL then set_mario_action(m, ACT_BACKWARD_AIR_KB, 0) end
+
+    if buttonZpress then 
+        set_mario_action(m, ACT_GROUND_POUND, 0) 
+        spawn_particle(m, PARTICLE_MIST_CIRCLE)
+    end
 
     mario_set_forward_vel(m, 60)
     make_actionable_air(m)
@@ -134,7 +154,7 @@ local function act_skye_attack_right(m)
         m.flags = m.flags | MARIO_KICKING
     end
 
-    if buttonBpress and m.actionTimer > 4 then return set_mario_action(m, ACT_SKYE_ATTACK_LEFT, 0) end
+    if buttonBpress and m.actionTimer > 6 then return set_mario_action(m, ACT_SKYE_ATTACK_LEFT, 0) end
     if m.actionTimer > 14 then set_mario_action(m, ACT_IDLE, 0) end
 
     m.actionTimer = m.actionTimer + 1
@@ -161,13 +181,40 @@ local function act_skye_attack_left(m)
         m.flags = m.flags | MARIO_KICKING
     end
 
-    if buttonBpress and m.actionTimer > 4 then return set_mario_action(m, ACT_SKYE_ATTACK_RIGHT, 0) end
+    if buttonBpress and m.actionTimer > 6 then return set_mario_action(m, ACT_SKYE_ATTACK_CENTER, 0) end
     if m.actionTimer > 14 then set_mario_action(m, ACT_IDLE, 0) end
 
     m.actionTimer = m.actionTimer + 1
     return false
 end
 hook_mario_action(ACT_SKYE_ATTACK_LEFT, {every_frame=act_skye_attack_left}, INT_KICK)
+
+local function act_skye_attack_center(m)
+    init_locals(m)
+
+    if m.actionTimer == 0 then
+        play_character_sound(m, CHAR_SOUND_HRMM)
+        m.faceAngle.y = m.intendedYaw
+        set_mario_animation(m, CHAR_ANIM_FIRST_PUNCH)
+        smlua_anim_util_set_animation(m.marioObj, 'SLASH_CENTER')
+    end
+
+    step = perform_ground_step(m)
+
+    if m.actionTimer == 5 then
+        mario_set_forward_vel(m, 20)
+        play_character_sound(m, CHAR_SOUND_GROUND_POUND_WAH)
+        m.flags = m.flags | MARIO_KICKING
+    end
+
+    if m.actionTimer > 14 then set_mario_action(m, ACT_IDLE, 0) end
+
+    m.actionTimer = m.actionTimer + 1
+
+    return false
+end
+hook_mario_action(ACT_SKYE_ATTACK_CENTER, {every_frame=act_skye_attack_center}, INT_KICK)
+
 
 function check_double_jump_s(m)
     init_locals(m)
@@ -192,6 +239,7 @@ end
 
 local function before_set_action(m, inc)
     init_locals(m)
+    if m.playerIndex ~= 0 then return end
 
     if inc == ACT_SOFT_BONK or (inc == ACT_BACKWARD_AIR_KB and (m.prevAction ~= ACT_DIVE and m.prevAction ~= ACT_LONG_JUMP)) then
         m.faceAngle.y = m.faceAngle.y + 0x8000
@@ -204,13 +252,15 @@ local function before_set_action(m, inc)
     end
 end
 
+--[[
 local function on_set_action_skye(m)
-    --attack starts on right always
-    
 end
+]]
+
 
 local function before_update(m)
     init_locals(m)
+    if m.playerIndex ~= 0 then return end
     
     if (action == ACT_PUNCHING or action == ACT_MOVE_PUNCHING) then
         set_mario_action(m, ACT_SKYE_ATTACK_RIGHT, 0)
@@ -222,6 +272,8 @@ end
 local function update_skye(m)
     init_locals(m)
     lastspeed = get_current_speed(m)
+
+    if m.playerIndex ~= 0 then return end
 
     -- Global Action Timer
     e.actionTick = e.actionTick + 1
@@ -242,7 +294,7 @@ local function update_skye(m)
         end
     end
 
-    if action == ACT_SKYE_DASH_AIR then m.marioBodyState.capState = 2 end
+    if (action == ACT_SKYE_DASH_AIR or action == ACT_SKYE_DASH_GROUND) then m.marioBodyState.capState = 2 end
 
     check_double_jump_s(m)
     check_dash(m)
@@ -251,6 +303,6 @@ local function update_skye(m)
 end
 
 charSelect.character_hook_moveset(CHAR_SKYE, HOOK_BEFORE_SET_MARIO_ACTION, before_set_action)
-charSelect.character_hook_moveset(CHAR_SKYE, HOOK_ON_SET_MARIO_ACTION, on_set_action_skye)
+--charSelect.character_hook_moveset(CHAR_SKYE, HOOK_ON_SET_MARIO_ACTION, on_set_action_skye)
 charSelect.character_hook_moveset(CHAR_SKYE, HOOK_BEFORE_MARIO_UPDATE, before_update)
 charSelect.character_hook_moveset(CHAR_SKYE, HOOK_MARIO_UPDATE, update_skye)

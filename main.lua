@@ -52,7 +52,7 @@ function rightSwitchC(node, maxStackIndex)
     local m = geo_get_mario_state()
     local toNode = 0
 
-    if m.action == ACT_SKYE_ATTACK_RIGHT and m.actionTimer < 8 then
+    if (m.action == ACT_SKYE_ATTACK_RIGHT or m.action == ACT_SKYE_ATTACK_CENTER) and m.actionTimer < 8 then
         toNode = 1
     else
         toNode = 0
@@ -65,7 +65,7 @@ function leftSwitchC(node, maxStackIndex)
     local m = geo_get_mario_state()
     local toNode = 0
 
-    if m.action == ACT_SKYE_ATTACK_LEFT and m.actionTimer < 8 then
+    if (m.action == ACT_SKYE_ATTACK_LEFT or m.action == ACT_SKYE_ATTACK_CENTER) and m.actionTimer < 8 then
         toNode = 1
     else
         toNode = 0
